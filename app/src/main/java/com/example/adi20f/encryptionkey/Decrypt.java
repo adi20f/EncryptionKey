@@ -19,12 +19,14 @@ import android.view.View.OnClickListener;
  * Created by adi20f on 5/3/2015.
  */
 public class Decrypt extends ActionBarActivity implements OnClickListener {
+    //data members for the screen and class
     Button mButton;
     EditText keyText;
     EditText encryptedMessage;
     TextView message;
     String text;
 
+    //
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.decrypt);
@@ -33,11 +35,12 @@ public class Decrypt extends ActionBarActivity implements OnClickListener {
         message = (TextView) findViewById(R.id.outputMessage);
         mButton = (Button) findViewById(R.id.decrypt);
         mButton.setOnClickListener(this);
-        text = encryptedMessage.getText().toString();
+
     }
 
     @Override
     public void onClick(View v) {
+        text = encryptedMessage.getText().toString();
         String decoded = decrypt(text.substring(0, text.length() - 1));
         message.setText(decoded);
         ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
