@@ -4,6 +4,8 @@ package com.example.adi20f.encryptionkey;
 import android.content.ClipData;
 
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.content.ClipboardManager;
@@ -25,7 +27,8 @@ public class Decrypt extends ActionBarActivity implements OnClickListener {
     EditText encryptedMessage;
     TextView message;
     String text;
-
+    Handler handler;
+    String decoded;
     //
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +38,22 @@ public class Decrypt extends ActionBarActivity implements OnClickListener {
         message = (TextView) findViewById(R.id.outputMessage);
         mButton = (Button) findViewById(R.id.decrypt);
         mButton.setOnClickListener(this);
+        handler = new Handler();
+        decoded = "";
 
     }
 
     @Override
     public void onClick(View v) {
         text = encryptedMessage.getText().toString();
-        String decoded = decrypt(text.substring(0, text.length() - 1));
+        if (text.substring(text.length() - 1).equalsIgnoreCase("y")) {
+            Intent i = new Intent(
+                    Decrypt.this,
+                    Game.class);
+            startActivity(i);
+        }
+        decoded = decrypt(text.substring(0, text.length() - 1));
+
         message.setText(decoded);
         ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("message", decoded);
@@ -75,8 +87,8 @@ public class Decrypt extends ActionBarActivity implements OnClickListener {
         String newStop = "";
         for (int i = 0; i < lenStop; i++) {
             int displace = (int) (stop.charAt(i)) + randAscii;
-            char yoloswag = (char) (displace);
-            newStop = newStop + yoloswag;
+            char temp = (char) (displace);
+            newStop = newStop + temp;
         }
 
         String plusExtra = "";
@@ -116,8 +128,8 @@ public class Decrypt extends ActionBarActivity implements OnClickListener {
                 actualFinalReally = actualFinalReally + " ";
             } else {
                 int displace = (int) (actual.charAt(yo)) - randAscii;
-                char yoloswag = (char) (displace);
-                actualFinalReally = actualFinalReally + yoloswag;
+                char temp = (char) (displace);
+                actualFinalReally = actualFinalReally + temp;
             }
         }
         return actualFinalReally;

@@ -33,12 +33,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Choose a Game"
+        android:text="Do You Want a game?"
         android:id="@+id/textView2"
-        android:layout_below="@+id/message"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="39dp" />
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="125dp" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -49,22 +48,23 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fighting"
-            android:id="@+id/fighting"
+            android:text="Yes"
+            android:id="@+id/yes"
             android:checked="true"
             android:onClick="onRadioButtonClicked"
             android:layout_below="@+id/textView2"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Concentration"
-            android:id="@+id/concentration"
+            android:text="No"
+            android:id="@+id/no"
             android:checked="false"
             android:onClick="onRadioButtonClicked"
-            android:layout_below="@+id/fighting"
+            android:layout_below="@+id/yes"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -77,7 +77,8 @@
         android:id="@+id/buttonEncypt"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="50dp" />
 
     <TextView
         android:layout_width="wrap_content"

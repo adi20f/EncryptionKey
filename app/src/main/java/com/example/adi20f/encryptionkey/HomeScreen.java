@@ -32,10 +32,6 @@ public class HomeScreen extends ActionBarActivity implements OnClickListener {
     }
 
 
-    protected void onCreateEncrpyt(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_encrypt);
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
