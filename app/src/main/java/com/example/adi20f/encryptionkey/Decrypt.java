@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 
 /**
@@ -23,7 +24,6 @@ import android.view.View.OnClickListener;
 public class Decrypt extends ActionBarActivity implements OnClickListener {
     //data members for the screen and class
     Button mButton;
-    EditText keyText;
     EditText encryptedMessage;
     TextView message;
     String text;
@@ -33,7 +33,7 @@ public class Decrypt extends ActionBarActivity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.decrypt);
-        keyText = (EditText) findViewById(R.id.inputKey);
+
         encryptedMessage = (EditText) findViewById(R.id.inputMessage);
         message = (TextView) findViewById(R.id.outputMessage);
         mButton = (Button) findViewById(R.id.decrypt);
@@ -58,6 +58,7 @@ public class Decrypt extends ActionBarActivity implements OnClickListener {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("message", decoded);
         clipboard.setPrimaryClip(clip);
+        Toast.makeText(getApplicationContext(), "Decrypted Message Copied to Clipboard!", Toast.LENGTH_SHORT).show();
     }
 
     public String decrypt(String mess) {
