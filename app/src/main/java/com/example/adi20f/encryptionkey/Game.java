@@ -44,6 +44,8 @@ public class Game extends ActionBarActivity implements OnClickListener {
     }
 
     public void concentration() {
+        mEdit.setText("");
+        correct.setText("");
         Random rand = new Random();
         String north = "North";
         int northNum = 1;

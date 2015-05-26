@@ -69,6 +69,6 @@
         android:id="@+id/correct"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="-100dp" />
+        android:layout_marginLeft="100dp" />
 
 </LinearLayout>
